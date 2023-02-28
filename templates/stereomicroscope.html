@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Margarida's portfolio</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="static/assets/css/main.css" />
+    <link rel="shortcut icon" href="{{ url_for('static', filename='main_icon.ico') }}">
+	</head>
+	<body class="is-preload">
+
+		<!-- Header -->
+			<header id="header_proj">
+				<div class="inner">
+					<h1><strong>Stereomicroscope</strong></h1>
+					<h2><p><b>Modeling a stereomicroscope using SolidWorks.</b> All components of the stereomicroscope were individually modeled and then assembled. The gallery on the right shows the stereomicroscope after rendering in various perspectives.</p></h2>
+          <h6><p>This project was developed under the scope of the curricular unit <i>Modeling in Biomedical Engineering</i> in the 1<sup>st</sup> year of the master in Bioengineering (2021).</p></h6>
+        </div>
+			</header>
+
+		<!-- Main -->
+        <div id="main" class="main_projects">
+        <div class="row">
+          <div class="column">
+            <img src="static/images/stereomicroscope/3d.png" style="width:100%" onclick="openModal();currentSlide(1)" class="hover-shadow cursor">
+          </div>
+          <div class="column">
+            <img src="static/images/stereomicroscope/front.png" style="width:100%" onclick="openModal();currentSlide(2)" class="hover-shadow cursor">
+          </div>
+          <div class="column">
+            <img src="static/images/stereomicroscope/lateral1.png" style="width:100%" onclick="openModal();currentSlide(3)" class="hover-shadow cursor">
+          </div>
+          <div class="column">
+            <img src="static/images/stereomicroscope/back.png" style="width:100%" onclick="openModal();currentSlide(4)" class="hover-shadow cursor">
+          </div>
+          <div class="column">
+            <img src="static/images/stereomicroscope/lateral2.png" style="width:100%" onclick="openModal();currentSlide(4)" class="hover-shadow cursor">
+          </div>
+          <div class="column">
+            <img src="static/images/stereomicroscope/top.png" style="width:100%" onclick="openModal();currentSlide(4)" class="hover-shadow cursor">
+          </div>
+        </div>
+        
+        <div id="myModal" class="modal">
+          <span class="close cursor" onclick="closeModal()">&times;</span>
+          <div class="modal-content">
+        
+            <div class="mySlides">
+              <div class="numbertext">1 / 6</div>
+              <img src="static/images/stereomicroscope/3d.png" style="width:100%">
+            </div>
+        
+            <div class="mySlides">
+              <div class="numbertext">2 / 6</div>
+              <img src="static/images/stereomicroscope/front.png" style="width:100%">
+            </div>
+        
+            <div class="mySlides">
+              <div class="numbertext">3 / 6</div>
+              <img src="static/images/stereomicroscope/lateral1.png" style="width:100%">
+            </div>
+
+            <div class="mySlides">
+                <div class="numbertext">4 / 6</div>
+                <img src="static/images/stereomicroscope/back.png" style="width:100%">
+              </div>
+
+            <div class="mySlides">
+                <div class="numbertext">5 / 6</div>
+                <img src="static/images/stereomicroscope/lateral2.png" style="width:100%">
+            </div>
+
+            <div class="mySlides">
+                <div class="numbertext">6 / 6</div>
+                <img src="static/images/stereomicroscope/top.png" style="width:100%">
+            </div>
+            
+            <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+            <a class="next" onclick="plusSlides(1)">&#10095;</a>
+     
+        
+        
+       
+          </div>
+        </div>
+    </div>
+
+        <script>
+            function openModal() {
+              document.getElementById("myModal").style.display = "block";
+            }
+            
+            function closeModal() {
+              document.getElementById("myModal").style.display = "none";
+            }
+            
+            var slideIndex = 1;
+            showSlides(slideIndex);
+            
+            function plusSlides(n) {
+              showSlides(slideIndex += n);
+            }
+            
+            function currentSlide(n) {
+              showSlides(slideIndex = n);
+            }
+            
+            function showSlides(n) {
+              var i;
+              var slides = document.getElementsByClassName("mySlides");
+              var dots = document.getElementsByClassName("demo");
+              var captionText = document.getElementById("caption");
+              if (n > slides.length) {slideIndex = 1}
+              if (n < 1) {slideIndex = slides.length}
+              for (i = 0; i < slides.length; i++) {
+                  slides[i].style.display = "none";
+              }
+              for (i = 0; i < dots.length; i++) {
+                  dots[i].className = dots[i].className.replace(" active", "");
+              }
+              slides[slideIndex-1].style.display = "block";
+              dots[slideIndex-1].className += " active";
+              captionText.innerHTML = dots[slideIndex-1].alt;
+            }
+            </script>
+    </body>
+
+</html>
